@@ -1,0 +1,14 @@
+diff --git a/View/Element/Template/File/Validator.php b/View/Element/Template/File/Validator.php
+index 285c05c..533e491 100644
+--- a/View/Element/Template/File/Validator.php
++++ b/View/Element/Template/File/Validator.php
+@@ -137,7 +137,8 @@ class Validator
+         }
+         $realPath = $this->fileDriver->getRealPath($path);
+         foreach ($directories as $directory) {
+-            if (0 === strpos($realPath, $directory)) {
++            $realDirectory = $this->fileDriver->getRealPath($directory);
++            if (0 === strpos($realPath, $realDirectory)) {
+                 return true;
+             }
+         }
